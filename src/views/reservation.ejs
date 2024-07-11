@@ -1,0 +1,95 @@
+<%- include("partials/_header") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Villa del Sur - Home</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .jumbotron {
+            background: url('hotel-exterior.jpg') no-repeat center center;
+            background-size: cover;
+            height: 600px;
+            margin-bottom: 0;
+            position: relative;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .jumbotron h1 {
+            font-size: 4rem;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .feature-box {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .feature-box h2 {
+            margin-bottom: 20px;
+        }
+        .feature-box img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Bienvenidos a Hotel Villa del Sur</h1>
+            <p>Disfruta de la hospitalidad y confort en nuestro hotel de lujo.</p>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <img src="/images/1.jpg" class="img-fluid">
+                    <h2>Suites de Lujo</h2>
+                    <p>Descubre nuestras suites espaciosas y confortables.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <img src="2.jpg">
+                    <h2>Piscina y Spa</h2>
+                    <p>Relájate y disfruta de nuestra piscina y spa.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <img src="3.jpg" >
+                    <h2>Restaurante Gourmet</h2>
+                    <p>Prueba nuestros exquisitos platos en nuestro restaurante gourmet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<%- include("partials/_footer") %>

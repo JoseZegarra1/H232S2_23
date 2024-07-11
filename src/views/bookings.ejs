@@ -1,0 +1,104 @@
+<%- include("partials/_header") %>
+
+<div class="container mt-5">
+  <div class="card-body">
+    <form action="/add" method="POST">
+      <input type="text" name="NOMBRES" placeholder="Nombres" class="form-control mb-2"  required/>
+      <input type="email" name="CORREO" placeholder="Correo" class="form-control mb-2" required/>
+      <input type="text" name="CELULAR" placeholder="Celular" class="form-control mb-2" required/>
+      <input type="date" name="FECHAENTRADA" placeholder="Fecha de Entrada" class="form-control mb-2" required/>
+      <input type="date" name="FECHASALIDA" placeholder="Fecha de Salida" class="form-control mb-2" required/>
+      <select name="TIPOHABITACION" class="form-control mb-2" required>
+        <option value="Simple">Simple</option>
+        <option value="Doble">Doble</option>
+        <option value="Familiar">Familiar</option>
+        <option value="Matrimonial">Matrimonial</option>
+      </select>
+      <input type="text" name="NUMEROHABITACIONES" placeholder="Número de Habitaciones" class="form-control mb-2" required/>
+      <input type="text" name="NUMEROPERSONAS" placeholder="Número de Personas" class="form-control mb-2" required/>
+      
+      <div class="form-group mb-2" style="color: black;">
+        <label for="PETICIONES">Peticiones:</label>
+        <div>
+          <input type="radio" id="no-peticiones" name="PETICIONES" value="Ninguna" checked>
+          <label for="no-peticiones">Ninguna</label>
+        </div>
+        <div>
+          <input type="radio" id="cama-extra" name="PETICIONES" value="Cama extra">
+          <label for="cama-extra">Cama extra</label>
+        </div>
+        <div>
+          <input type="radio" id="vista-mar" name="PETICIONES" value="Vista al mar">
+          <label for="vista-mar">Vista al mar</label>
+        </div>
+        <div>
+          <input type="radio" id="piso-alto" name="PETICIONES" value="Piso alto">
+          <label for="piso-alto">Piso alto</label>
+        </div>
+      </div>
+
+      <input type="text" name="METODOPAGO" placeholder="Método de Pago" class="form-control mb-2" required/>
+      <input type="number" name="COSTO" placeholder="Costo" class="form-control mb-2" min="0" step="1" required/>
+      <button type="submit" class="btn btn-info">Guardar Reserva</button>
+    </form>
+  </div>
+
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-md-7">
+      <table class="table table-dark table-bordered table-hover">
+        <thead>
+          <tr>
+            <td>n°</td>
+            <td>Nombres</td>
+            <td>Correo</td>
+            <td>Celular</td>
+            <td>Fecha de Entrada</td>
+            <td>Fecha de Salida</td>
+            <td>Tipo de Habitación</td>
+            <td>Número de Habitaciones</td>
+            <td>Número de Personas</td>
+            <td>Peticiones</td>
+            <td>Método de Pago</td>
+            <td>Costo</td>
+            <td>Actions</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (bookings) { %>
+          <% for (var i = 0; i < bookings.length; i++) { %>
+          <tr>
+            <td><%= (i + 1) %></td>
+            <td><%= bookings[i].NOMBRES %></td>
+            <td><%= bookings[i].CORREO %></td>
+            <td><%= bookings[i].CELULAR %></td>
+            <td><%= bookings[i].FECHAENTRADA.toISOString().substring(0, 10) %></td>
+            <td><%= bookings[i].FECHASALIDA.toISOString().substring(0, 10) %></td>
+            <td><%= bookings[i].TIPOHABITACION %></td>
+            <td><%= bookings[i].NUMEROHABITACIONES %></td>
+            <td><%= bookings[i].NUMEROPERSONAS %></td>
+            <td><%= bookings[i].PETICIONES %></td>
+            <td><%= bookings[i].METODOPAGO %></td>
+            <td><%= bookings[i].COSTO %></td>
+            <td class="d-flex gap-2">
+              <a href="/update/<%= bookings[i].ID %>" class="btn btn-info">Edit</a>
+              <a href="/delete/<%= bookings[i].ID %>" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+</div>
+
+<%- include("partials/_footer") %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var today = new Date().toISOString().substring(0, 10);
+    document.querySelector('input[name="FECHAENTRADA"]').value = today;
+    document.querySelector('input[name="FECHASALIDA"]').value = today;
+  });
+</script>

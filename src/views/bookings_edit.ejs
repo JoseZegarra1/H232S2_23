@@ -1,0 +1,26 @@
+<%- include("partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card bg-dark">
+      <div class="card-body">
+        <form action="/update/<%= booking.ID %>" method="POST">
+          <input type="text" name="NOMBRES" value="<%= booking.NOMBRES %>" placeholder="Nombres" class="form-control mb-3" autofocus />
+          <input type="email" name="CORREO" value="<%= booking.CORREO %>" placeholder="Correo" class="form-control mb-3" />
+          <input type="text" name="CELULAR" value="<%= booking.CELULAR %>" placeholder="Celular" class="form-control mb-3" />
+          <input type="date" name="FECHAENTRADA" value="<%= booking.FECHAENTRADA.toISOString().substring(0, 10) %>" placeholder="Fecha de Entrada" class="form-control mb-3" />
+          <input type="date" name="FECHASALIDA" value="<%= booking.FECHASALIDA.toISOString().substring(0, 10) %>" placeholder="Fecha de Salida" class="form-control mb-3" />
+          <input type="text" name="TIPOHABITACION" value="<%= booking.TIPOHABITACION %>" placeholder="Tipo de Habitación" class="form-control mb-3" />
+          <input type="text" name="NUMEROHABITACIONES" value="<%= booking.NUMEROHABITACIONES %>" placeholder="Número de Habitaciones" class="form-control mb-3" />
+          <input type="text" name="NUMEROPERSONAS" value="<%= booking.NUMEROPERSONAS %>" placeholder="Número de Personas" class="form-control mb-3" />
+          <input type="text" name="PETICIONES" value="<%= booking.PETICIONES %>" placeholder="Peticiones" class="form-control mb-3" />
+          <input type="text" name="METODOPAGO" value="<%= booking.METODOPAGO %>" placeholder="Método de Pago" class="form-control mb-3" />
+          <input type="text" name="COSTO" value="<%= booking.COSTO %>" placeholder="Costo" class="form-control mb-3" />
+          <button type="submit" class="btn btn-primary">Save Booking</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") %>
